@@ -437,7 +437,6 @@
         // Extract dominant colors from logo and set theme variables
         (function() {
             const img = new Image();
-            img.crossOrigin = 'anonymous';
             img.src = 'Images/Logo.jpg';
             img.onload = function() {
                 try {
@@ -476,8 +475,13 @@
                     root.style.setProperty('--brand-accent', accent);
                     root.style.setProperty('--brand-accent-2', accent2);
                 } catch (e) {
-                    // fail silently
+                    // fail silently - keep default colors
+                    console.log('Color extraction failed, using defaults');
                 }
+            };
+            img.onerror = function() {
+                // If image fails to load, keep default colors
+                console.log('Logo image failed to load, using default colors');
             };
         })();
         // Mobile menu toggle

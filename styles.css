@@ -13,7 +13,7 @@ body {
 }
 
 :root {
-    --brand-primary: #fbbf24; /* default to current brand yellow */
+    --brand-primary: #fbbf24; /* default to yellow, then extract from logo */
     --brand-accent: #f59e0b;  /* slightly deeper accent */
     --brand-accent-2: #d97706; /* hover/deeper shade */
 }
