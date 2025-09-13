@@ -119,51 +119,7 @@
     </div>
 
     <script>
-        // Extract dominant colors from logo and set theme variables
-        (function() {
-            const img = new Image();
-            img.src = 'Images/Logo.jpg';
-            img.onload = function() {
-                try {
-                    const canvas = document.createElement('canvas');
-                    const ctx = canvas.getContext('2d');
-                    const targetWidth = 64;
-                    const targetHeight = 64;
-                    canvas.width = targetWidth;
-                    canvas.height = targetHeight;
-                    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
-
-                    const { data } = ctx.getImageData(0, 0, targetWidth, targetHeight);
-                    const colorCount = {};
-                    const quantize = (v) => Math.round(v / 32) * 32;
-                    for (let i = 0; i < data.length; i += 4) {
-                        const a = data[i + 3];
-                        if (a < 128) continue;
-                        const r = quantize(data[i]);
-                        const g = quantize(data[i + 1]);
-                        const b = quantize(data[i + 2]);
-                        const key = `${r},${g},${b}`;
-                        colorCount[key] = (colorCount[key] || 0) + 1;
-                    }
-                    const sorted = Object.entries(colorCount)
-                        .sort((a, b) => b[1] - a[1])
-                        .map(([k]) => k.split(',').map(Number));
-                    if (!sorted.length) return;
-
-                    const toHex = ([r, g, b]) => '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
-                    const primary = toHex(sorted[0]);
-                    const accent = toHex(sorted[1] || sorted[0]);
-                    const accent2 = toHex(sorted[2] || sorted[1] || sorted[0]);
-
-                    const root = document.documentElement;
-                    root.style.setProperty('--brand-primary', primary);
-                    root.style.setProperty('--brand-accent', accent);
-                    root.style.setProperty('--brand-accent-2', accent2);
-                } catch (e) {
-                    // fail silently
-                }
-            };
-        })();
+        // Color extraction disabled - keeping original yellow theme
     </script>
 </body>
 </html>
