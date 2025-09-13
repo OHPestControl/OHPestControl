@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Service - OH Pest Control LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .emergency-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #7f1d1d 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .emergency-content {
+            max-width: 600px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .emergency-icon {
+            font-size: 4rem;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .emergency-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fbbf24;
+        }
+        
+        .emergency-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .phone-section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #fbbf24;
+        }
+        
+        .phone-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fbbf24;
+            text-decoration: none;
+            display: inline-block;
+            padding: 20px 40px;
+            background: rgba(251, 191, 36, 0.2);
+            border: 3px solid #fbbf24;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            margin: 1rem 0;
+        }
+        
+        .phone-number:hover {
+            background: #fbbf24;
+            color: #000;
+            transform: scale(1.05);
+        }
+        
+        .emergency-info {
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .emergency-info h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #fbbf24;
+            color: #000;
+        }
+        
+        .service-hours {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .emergency-content {
+                padding: 2rem;
+                margin: 0 10px;
+            }
+            
+            .emergency-title {
+                font-size: 2rem;
+            }
+            
+            .phone-number {
+                font-size: 2rem;
+                padding: 15px 30px;
+            }
+            
+            .emergency-subtitle {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="emergency-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <div class="emergency-content">
+            <div class="emergency-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            
+            <h1 class="emergency-title">EMERGENCY SERVICE</h1>
+            <p class="emergency-subtitle">24/7 Pest Control Emergency Response</p>
+            
+            <div class="phone-section">
+                <h2>Call Now for Immediate Assistance</h2>
+                <a href="tel:+14408656464" class="phone-number">
+                    <i class="fas fa-phone"></i> (440) 865-6464
+                </a>
+                <p>Available 24 hours a day, 7 days a week</p>
+            </div>
+            
+            <div class="emergency-info">
+                <h3>When to Call Emergency Service:</h3>
+                <ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+                    <li>Active pest infestations requiring immediate attention</li>
+                    <li>Bees or wasps near high-traffic areas</li>
+                    <li>Rodent problems in food preparation areas</li>
+                    <li>Termite swarms or damage</li>
+                    <li>Any pest emergency that cannot wait</li>
+                </ul>
+            </div>
+            
+            <div class="service-hours">
+                <h3><i class="fas fa-clock"></i> Emergency Response</h3>
+                <p>We respond to emergency calls within 2 hours during business hours and within 4 hours after hours. Our emergency service team is equipped to handle urgent pest control situations quickly and effectively.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Extract dominant colors from logo and set theme variables
+        (function() {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = 'Images/Logo.jpg';
+            img.onload = function() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const targetWidth = 64;
+                    const targetHeight = 64;
+                    canvas.width = targetWidth;
+                    canvas.height = targetHeight;
+                    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+                    const { data } = ctx.getImageData(0, 0, targetWidth, targetHeight);
+                    const colorCount = {};
+                    const quantize = (v) => Math.round(v / 32) * 32;
+                    for (let i = 0; i < data.length; i += 4) {
+                        const a = data[i + 3];
+                        if (a < 128) continue;
+                        const r = quantize(data[i]);
+                        const g = quantize(data[i + 1]);
+                        const b = quantize(data[i + 2]);
+                        const key = `${r},${g},${b}`;
+                        colorCount[key] = (colorCount[key] || 0) + 1;
+                    }
+                    const sorted = Object.entries(colorCount)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([k]) => k.split(',').map(Number));
+                    if (!sorted.length) return;
+
+                    const toHex = ([r, g, b]) => '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+                    const primary = toHex(sorted[0]);
+                    const accent = toHex(sorted[1] || sorted[0]);
+                    const accent2 = toHex(sorted[2] || sorted[1] || sorted[0]);
+
+                    const root = document.documentElement;
+                    root.style.setProperty('--brand-primary', primary);
+                    root.style.setProperty('--brand-accent', accent);
+                    root.style.setProperty('--brand-accent-2', accent2);
+                } catch (e) {
+                    // fail silently
+                }
+            };
+        })();
+    </script>
+</body>
+</html>

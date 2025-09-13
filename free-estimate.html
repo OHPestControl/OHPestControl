@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Estimate - OH Pest Control LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .estimate-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            padding: 20px;
+        }
+        
+        .estimate-content {
+            position: relative;
+            max-width: 100%;
+            text-align: center;
+        }
+        
+        .estimate-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .phone-overlay {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--brand-primary, #fbbf24);
+        }
+        
+        .phone-overlay h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--brand-primary, #fbbf24);
+        }
+        
+        .phone-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--brand-primary, #fbbf24);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .phone-number:hover {
+            background: var(--brand-accent, #f59e0b);
+            transform: scale(1.05);
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: var(--brand-primary, #fbbf24);
+            color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            .phone-overlay {
+                padding: 15px 20px;
+                margin: 0 10px;
+            }
+            
+            .phone-overlay h2 {
+                font-size: 1.25rem;
+            }
+            
+            .phone-number {
+                font-size: 1.5rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="estimate-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        
+        <div class="estimate-content">
+            <img src="Images/FreeEstimates.jpg" alt="Free Estimate Information" class="estimate-image">
+            
+            <div class="phone-overlay">
+                <h2>Call for Your Free Estimate</h2>
+                <a href="tel:+14408656464" class="phone-number">
+                    <i class="fas fa-phone"></i> (440) 865-6464
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Extract dominant colors from logo and set theme variables
+        (function() {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = 'Images/Logo.jpg';
+            img.onload = function() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const targetWidth = 64;
+                    const targetHeight = 64;
+                    canvas.width = targetWidth;
+                    canvas.height = targetHeight;
+                    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+                    const { data } = ctx.getImageData(0, 0, targetWidth, targetHeight);
+                    const colorCount = {};
+                    const quantize = (v) => Math.round(v / 32) * 32;
+                    for (let i = 0; i < data.length; i += 4) {
+                        const a = data[i + 3];
+                        if (a < 128) continue;
+                        const r = quantize(data[i]);
+                        const g = quantize(data[i + 1]);
+                        const b = quantize(data[i + 2]);
+                        const key = `${r},${g},${b}`;
+                        colorCount[key] = (colorCount[key] || 0) + 1;
+                    }
+                    const sorted = Object.entries(colorCount)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([k]) => k.split(',').map(Number));
+                    if (!sorted.length) return;
+
+                    const toHex = ([r, g, b]) => '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+                    const primary = toHex(sorted[0]);
+                    const accent = toHex(sorted[1] || sorted[0]);
+                    const accent2 = toHex(sorted[2] || sorted[1] || sorted[0]);
+
+                    const root = document.documentElement;
+                    root.style.setProperty('--brand-primary', primary);
+                    root.style.setProperty('--brand-accent', accent);
+                    root.style.setProperty('--brand-accent-2', accent2);
+                } catch (e) {
+                    // fail silently
+                }
+            };
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - OH Pest Control LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="Images/Logo.jpg" alt="OH Pest Control logo" class="nav-logo-image">
+                <span>OH Pest Control LLC</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="tel:+14408656464" class="btn-secondary">Call Now</a>
+                <a href="free-estimate.html" target="_blank" class="btn-primary">Free Estimate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Team Section -->
+    <section class="team-hero">
+        <div class="container">
+            <div class="team-content">
+                <div class="team-image">
+                    <img src="Images/Image3.jpg" alt="Jake - Business Owner" class="team-photo">
+                </div>
+                <div class="team-info">
+                    <h1>Meet Jake</h1>
+                    <h2>Business Owner & Pest Control Expert</h2>
+                    <p class="team-description">Jake the business owner will manage pests and always try to prevent them prior to a major problem.</p>
+                    <div class="team-credentials">
+                        <div class="credential">
+                            <i class="fas fa-certificate"></i>
+                            <span>Licensed & Certified</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Fully Insured</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Emergency Service</span>
+                        </div>
+                    </div>
+                    <div class="team-cta">
+                        <a href="tel:+14408656464" class="btn-primary btn-large">Call (440) 865-6464</a>
+                        <a href="index.html" class="btn-outline btn-large">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-bug"></i>
+                        <span>OH Pest Control LLC</span>
+                    </div>
+                    <p>Ohio's trusted pest control experts protecting homes and businesses since 2021.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+14408656464">Call (440) 865-6464</a></li>
+                        <li><a href="mailto:ohpestcontrol.llc@gmail.com">Email Us</a></li>
+                        <li><a href="index.html#service-areas">Service Areas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OH Pest Control LLC. All rights reserved.</p>
+            </div>
+            <div class="footer-disclaimer">
+                <p><strong>NO</strong> company can ever guarantee total elimination of pests.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Extract dominant colors from logo and set theme variables
+        (function() {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = 'Images/Logo.jpg';
+            img.onload = function() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const targetWidth = 64;
+                    const targetHeight = 64;
+                    canvas.width = targetWidth;
+                    canvas.height = targetHeight;
+                    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+                    const { data } = ctx.getImageData(0, 0, targetWidth, targetHeight);
+                    const colorCount = {};
+                    const quantize = (v) => Math.round(v / 32) * 32;
+                    for (let i = 0; i < data.length; i += 4) {
+                        const a = data[i + 3];
+                        if (a < 128) continue;
+                        const r = quantize(data[i]);
+                        const g = quantize(data[i + 1]);
+                        const b = quantize(data[i + 2]);
+                        const key = `${r},${g},${b}`;
+                        colorCount[key] = (colorCount[key] || 0) + 1;
+                    }
+                    const sorted = Object.entries(colorCount)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([k]) => k.split(',').map(Number));
+                    if (!sorted.length) return;
+
+                    const toHex = ([r, g, b]) => '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+                    const primary = toHex(sorted[0]);
+                    const accent = toHex(sorted[1] || sorted[0]);
+                    const accent2 = toHex(sorted[2] || sorted[1] || sorted[0]);
+
+                    const root = document.documentElement;
+                    root.style.setProperty('--brand-primary', primary);
+                    root.style.setProperty('--brand-accent', accent);
+                    root.style.setProperty('--brand-accent-2', accent2);
+                } catch (e) {
+                    // fail silently
+                }
+            };
+        })();
+    </script>
+</body>
+</html>

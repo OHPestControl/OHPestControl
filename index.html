@@ -7,24 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-bug"></i>
+                <img src="Images/Logo.jpg" alt="OH Pest Control logo" class="nav-logo-image">
                 <span>OH Pest Control LLC</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#updates">Latest Updates</a></li>
+                
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-buttons">
                 <a href="tel:+14408656464" class="btn-secondary">Call Now</a>
-                <button class="btn-primary">Free Estimate</button>
+                <a href="free-estimate.html" target="_blank" class="btn-primary">Free Estimate</a>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -41,7 +42,7 @@
                 <h1>Protect Your Property with <span class="gradient-text">Professional Pest Control</span></h1>
                 <p>Locally owned and operated Pest Control Services. We are professional, efficient, and affordable!</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary btn-large">Schedule Free Estimate</button>
+                    <a href="free-estimate.html" target="_blank" class="btn-primary btn-large">Schedule Free Estimate</a>
                     <a href="tel:+14408656464" class="btn-outline btn-large">
                         <i class="fas fa-phone"></i>
                         Call (440) 865-6464
@@ -49,8 +50,8 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">2,000+</span>
-                        <span class="stat-label">Homes Protected</span>
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Customers Protected</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">3+</span>
@@ -117,6 +118,35 @@
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>A few snapshots from recent inspections and treatments</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Images/Image2.jpg" alt="Pest control service photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/Image1.jpg" alt="Pest control service photo 1">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section id="service-areas" class="service-areas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Service Areas</h2>
+                <p>Proudly serving communities across Northern Ohio</p>
+            </div>
+            <div id="ohio-map" class="map"></div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="features">
         <div class="container">
@@ -171,98 +201,130 @@
         </div>
     </section>
 
-    <!-- Latest Updates Section -->
-    <section id="updates" class="updates">
-        <div class="container">
-            <div class="section-header">
-                <h2>Latest Updates & News</h2>
-                <p>Stay informed about pest control tips, seasonal updates, and company news</p>
-            </div>
-            <div class="updates-grid">
-                <div class="update-card">
-                    <div class="update-date">
-                        <span class="month">Jan</span>
-                        <span class="day">15</span>
-                    </div>
-                    <div class="update-content">
-                        <h3>Winter Pest Prevention Tips</h3>
-                        <p>Learn how to protect your home from rodents and insects during the cold winter months. Our experts share their top prevention strategies.</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="update-card">
-                    <div class="update-date">
-                        <span class="month">Jan</span>
-                        <span class="day">08</span>
-                    </div>
-                    <div class="update-content">
-                        <h3>New Service Area: Cleveland Suburbs</h3>
-                        <p>We're excited to announce expanded coverage to include all Cleveland suburbs. Call us for service in your area!</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="update-card">
-                    <div class="update-date">
-                        <span class="month">Dec</span>
-                        <span class="day">22</span>
-                    </div>
-                    <div class="update-content">
-                        <h3>Holiday Hours & Emergency Service</h3>
-                        <p>Our emergency pest control service remains available 24/7 throughout the holidays. Don't let pests ruin your celebrations!</p>
-                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-header">
                 <h2>What Our Customers Say</h2>
-                <p>Join thousands of satisfied customers who trust OH Pest Control LLC</p>
+                <p>Hear from our customers who trust OH Pest Control LLC</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"OH Pest Control saved our home from a major ant infestation. Their team was professional, thorough, and the treatment was completely effective. No more ants for over 6 months!"</p>
+                        <p>"Always here and always efficient anytime I need him! I thank you Jake!! Also my customers at Lady’s Paws thank you as well!"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Sarah Johnson">
+                            <img src="Reviews/Image/1.Sarah Kieffer.PNG" alt="Sarah Kieffer">
                         </div>
                         <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <span>Homeowner, Columbus</span>
+                            <h4>Sarah Kieffer</h4>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"We've been using OH Pest Control for our restaurant for 3 years. They keep our kitchen completely pest-free and help us maintain health department compliance. Highly recommended!"</p>
+                        <p>"We had our entire exterior treated for wasps. We also had some clover mites that were enjoying our window sills. We were aware of certain locations for the wasps but this guy is so thorough he discovered numerous other nests. He got them taken care of before they became as big as the one we called him for. He was polite, communicated frequently and seemed very knowledgeable about the insects. He gave us realistic expectations for the treatment and asked us to communicate with him if things were not going as they should. He was prompt for his arrival and I would have him back for any additional services! I just wish he did groundhogs haha 🤣 That is our next nuisance to address"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Michael Chen">
+                            <img src="Reviews/Image/2.Wendessa Kover.PNG" alt="Wendessa Kover">
                         </div>
                         <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <span>Restaurant Owner, Cleveland</span>
+                            <h4>Wendessa Kover</h4>
                         </div>
                     </div>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"When we discovered termites in our basement, OH Pest Control responded immediately. Their termite treatment was thorough and they provided a 5-year warranty. Peace of mind!"</p>
+                        <p>"We had the interior of our home treated, and while here, he did a walk through of the exterior to check for anything that needed addressed. Very professional and thorough. Thank you!"</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Emily Rodriguez">
+                            <img src="Reviews/Image/3.Lacy Phillips.PNG" alt="Lacy Phillips">
                         </div>
                         <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <span>Property Manager, Cincinnati</span>
+                            <h4>Lacy Phillips</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The owner Jacob responded very quickly to my inquiry through Facebook. He arrived at the time he said he would. He explained what he was going to accomplish and what we should expect. Very professional and friendly. Cleaned up the whole outside of the house of spiderwebs and put his bee suit on to tackle the yellowjackets in the attic and outside. Sprayed inside and outside for spiders. He spent two hours to make sure the job was done right and at a truly fair price. I 100% recommend OH Pest Control!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="Reviews/Image/4.Cathy Krynak.PNG" alt="Cathy Krynak">
+                        </div>
+                        <div class="author-info">
+                            <h4>Cathy Krynak</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I had yellow jackets in my house upstairs were my granddaughters are living and I needed help right away!!! So I asked for recommendations on Facebook and Jacob from OH Pest Control LLC contacted me and asked if I needed help. He came out to my house asked where the problem was and took care of business!!! I would highly recommend Jacob for all your pest needs!! Very professional and over all nice guy!!!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="Reviews/Image/5.Alan Kerr.PNG" alt="Alan Kerr">
+                        </div>
+                        <div class="author-info">
+                            <h4>Alan Kerr</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Jake came out and treated for bees today. He was extremely professional and knowledgeable. I highly recommend this company! They definitely have my business!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="Reviews/Image/6.Eric Winebrenner.PNG" alt="Eric Winebrenner">
+                        </div>
+                        <div class="author-info">
+                            <h4>Eric Winebrenner</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Jacob’s same day service was professional, knowledgeable and courteous. He made time and went out of his way to treat a hornet infestation and guaranteed his work. He was very cost effective considering he had to come in the evening. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="Reviews/Image/7.Tina Davidson.PNG" alt="Tina Davidson">
+                        </div>
+                        <div class="author-info">
+                            <h4>Tina Davidson</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I highly recommend OH Pest Control LLC. Service was prompt and customer service was great. We will be a return customer."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="Reviews/Image/8.Bridget Holzhauser.PNG" alt="Bridget Holzhauser">
+                        </div>
+                        <div class="author-info">
+                            <h4>Bridget Holzhauser</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"We hired OH Pest Control to treat our funeral home. We specifically had a problem with bees and wasps hanging out at the main entrances, and then making their way up to the second and third floors into our residence. Since he has treated, we have seen zero bees or wasps inside, and had no problems with them at the entrances to the building. Jake is kind and professional and knowledgeable about his service, and I recommend him to everyone I know!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="Reviews/Image/9. Jennifer Morman.PNG" alt="Jennifer Morman">
+                        </div>
+                        <div class="author-info">
+                            <h4>Jennifer Morman</h4>
                         </div>
                     </div>
                 </div>
@@ -271,13 +333,13 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta">
+    <section id="cta" class="cta">
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Protect Your Property?</h2>
-                <p>Join thousands of satisfied customers who trust OH Pest Control LLC</p>
+                <p>Join the many of our satisfied customers who trust OH Pest Control LLC</p>
                 <div class="cta-buttons">
-                    <button class="btn-primary btn-large">Schedule Free Estimate</button>
+                    <a href="free-estimate.html" target="_blank" class="btn-primary btn-large">Schedule Free Estimate</a>
                     <a href="tel:+14408656464" class="btn-outline btn-large">Call (440) 865-6464</a>
                 </div>
                 <p class="cta-note">Free estimate • No obligation • Satisfaction guaranteed</p>
@@ -302,43 +364,122 @@
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Residential</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Termite Control</a></li>
-                        <li><a href="#">Emergency Service</a></li>
+                        <li>Residential</li>
+                        <li>Commercial</li>
+                        <li>Termite Control</li>
+                        <li><a href="emergency.html" target="_blank">Emergency Service</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
-                        <li><a href="#">Service Areas</a></li>
-                        <li><a href="#">Licenses & Certifications</a></li>
+                        <li><a href="team.html" target="_blank">Our Team</a></li>
+                        <li><a href="#service-areas">Service Areas</a></li>
+                        <li><a href="licenses.html" target="_blank">Licenses & Certifications</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="#">Emergency Service</a></li>
-                        <li><a href="#">Free Estimate</a></li>
-                        <li><a href="#">Service Areas</a></li>
-                        <li><a href="#">Customer Portal</a></li>
+                        <li><a href="free-estimate.html" target="_blank">Free Estimate</a></li>
+                        <li><a href="#service-areas">Service Areas</a></li>
+                        <li><a href="mailto:ohpestcontrol.llc@gmail.com">Email</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-disclaimer">
+                <p><strong>NO</strong> company can ever guarantee total elimination of pests.</p>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 OH Pest Control LLC. All rights reserved.</p>
-                <div class="footer-links">
+                <!-- <div class="footer-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
                     <a href="#">Service Agreement</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </footer>
 
     <script>
+        
+        // Leaflet map for Service Areas
+        (function() {
+            const el = document.getElementById('ohio-map');
+            if (!el) return;
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+            script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+            script.crossOrigin = '';
+            script.onload = function() {
+                const map = L.map('ohio-map', { zoomControl: true });
+                const center = [41.2, -82.3];
+                map.setView(center, 9);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; OpenStreetMap'
+                }).addTo(map);
+
+                const locations = [
+                    { name: 'Oberlin, OH', coords: [41.2939, -82.2174] },
+                    { name: 'Wakeman, OH', coords: [41.2548, -82.3960] },
+                    { name: 'Norwalk, OH', coords: [41.2426, -82.6157] },
+                    { name: 'Milan, OH', coords: [41.2995, -82.6052] },
+                    { name: 'Collins, OH', coords: [41.2606, -82.4763] },
+                    { name: 'Vermilion, OH', coords: [41.4214, -82.3643] }
+                ];
+                locations.forEach(loc => {
+                    L.marker(loc.coords).addTo(map).bindPopup(`<strong>${loc.name}</strong>`);
+                });
+            };
+            document.body.appendChild(script);
+        })();
+        // Extract dominant colors from logo and set theme variables
+        (function() {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.src = 'Images/Logo.jpg';
+            img.onload = function() {
+                try {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    const targetWidth = 64;
+                    const targetHeight = 64;
+                    canvas.width = targetWidth;
+                    canvas.height = targetHeight;
+                    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+                    const { data } = ctx.getImageData(0, 0, targetWidth, targetHeight);
+                    const colorCount = {};
+                    const quantize = (v) => Math.round(v / 32) * 32; // reduce colors
+                    for (let i = 0; i < data.length; i += 4) {
+                        const a = data[i + 3];
+                        if (a < 128) continue; // skip transparent
+                        const r = quantize(data[i]);
+                        const g = quantize(data[i + 1]);
+                        const b = quantize(data[i + 2]);
+                        const key = `${r},${g},${b}`;
+                        colorCount[key] = (colorCount[key] || 0) + 1;
+                    }
+                    const sorted = Object.entries(colorCount)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([k]) => k.split(',').map(Number));
+                    if (!sorted.length) return;
+
+                    const toHex = ([r, g, b]) => '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+                    const primary = toHex(sorted[0]);
+                    const accent = toHex(sorted[1] || sorted[0]);
+                    const accent2 = toHex(sorted[2] || sorted[1] || sorted[0]);
+
+                    const root = document.documentElement;
+                    root.style.setProperty('--brand-primary', primary);
+                    root.style.setProperty('--brand-accent', accent);
+                    root.style.setProperty('--brand-accent-2', accent2);
+                } catch (e) {
+                    // fail silently
+                }
+            };
+        })();
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -361,6 +502,27 @@
                 }
             });
         });
+
+        // Rotate testimonials: show 3 at a time
+        (function() {
+            const container = document.querySelector('.testimonials-grid');
+            if (!container) return;
+            const cards = Array.from(container.querySelectorAll('.testimonial-card'));
+            if (cards.length <= 3) return;
+            let index = 0;
+            function render() {
+                cards.forEach((card, i) => {
+                    const inWindow = i >= index && i < index + 3;
+                    card.classList.toggle('hidden', !inWindow);
+                });
+            }
+            function step() {
+                index = (index + 3) % cards.length;
+                render();
+            }
+            render();
+            setInterval(step, 5000);
+        })();
     </script>
 </body>
 </html>
